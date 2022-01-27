@@ -63,6 +63,8 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -97,7 +99,7 @@ module.exports = function (webpackEnv) {
   const shouldUseReactRefresh = env.raw.FAST_REFRESH;
 
   // common function to get style loaders
-  const getStyleLoaders = (cssOptions, preProcessor) => {
+  const getStyleLoaders = (cssOptions,lessOptions, preProcessor) => {
     const loaders = [
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
@@ -111,6 +113,10 @@ module.exports = function (webpackEnv) {
       {
         loader: require.resolve('css-loader'),
         options: cssOptions,
+      },
+      {
+        loader: require.resolve('less-loader'),
+        options: lessOptions,
       },
       {
         // Options for PostCSS as we reference these options twice
@@ -533,6 +539,41 @@ module.exports = function (webpackEnv) {
                   },
                 },
                 'sass-loader'
+              ),
+            },
+            // for less
+            {
+              test: lessRegex,
+              exclude: cssModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 3,
+                  sourceMap: isEnvProduction
+                    ? shouldUseSourceMap
+                    : isEnvDevelopment,
+                },
+                'less-loader'),
+                // Don't consider CSS imports dead code even if the
+                // containing package claims to have no side effects.
+                // Remove this when webpack adds a warning or an error for this.
+                // See https://github.com/webpack/webpack/issues/6571
+                sideEffects: true,
+              
+            },
+            //for module-less
+            {
+              test: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 3,
+                  sourceMap: isEnvProduction
+                    ? shouldUseSourceMap
+                    : isEnvDevelopment,
+                  modules: {
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
+                },
+                'less-loader'
               ),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.

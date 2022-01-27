@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import RouterApp from './router';
-import Footer from '@/components/Layout/Footer'
-import './index.css';
+import Layout from '@/components/Layout/Layout'
+// import './index.css';
 // import App from './App';
 // import TestFetch from './components/UseApiDemo2';
 import reportWebVitals from './reportWebVitals';
@@ -12,7 +12,7 @@ ReactDOM.render(
   <React.StrictMode> 
     {/* <App /> */}
     {/* <TestFetch />*/}
-    <Footer></Footer>
+    <Layout></Layout>
   </React.StrictMode>
   ,
   document.getElementById('root')

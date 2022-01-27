@@ -1,11 +1,8 @@
 import React from 'react'
-import { NavBar, TabBar } from 'antd-mobile'
+import {TabBar } from 'antd-mobile'
 import {
-  Route,
-  Switch,
   useHistory,
   useLocation,
-  MemoryRouter as Router,
 } from 'react-router-dom'
 import {
   AppOutline,
@@ -14,9 +11,9 @@ import {
   UserOutline,
 } from 'antd-mobile-icons'
 
-import styles from '@/content/css/demo.less'
+import styles from '@/content/css/footer.less'
 
-const Bottom = () => {
+const Footer = () => {
   const history = useHistory()
   const location = useLocation()
   const { pathname } = location
@@ -49,57 +46,14 @@ const Bottom = () => {
   ]
 
   return (
-    <TabBar activeKey={pathname} onChange={value => setRouteActive(value)}>
-      {tabs.map(item => (
-        <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
-      ))}
-    </TabBar>
+    <div className={styles.footer}>
+      <TabBar activeKey={pathname} onChange={value => setRouteActive(value)}>
+        {tabs.map(item => (
+          <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+        ))}
+      </TabBar>
+    </div>
   )
 }
 
-export default function Footer(){
-  return (
-    <Router initialEntries={['/home']}>
-      <div className={styles.app}>
-        <div className={styles.top}>
-          <NavBar>配合路由使用</NavBar>
-        </div>
-        <div className={styles.body}>
-          <Switch>
-            <Route exact path='/home'>
-              <Home />
-            </Route>
-            <Route exact path='/todo'>
-              <Todo />
-            </Route>
-            <Route exact path='/message'>
-              <Message />
-            </Route>
-            <Route exact path='/me'>
-              <PersonalCenter />
-            </Route>
-          </Switch>
-        </div>
-        <div className={styles.bottom}>
-          <Bottom />
-        </div>
-      </div>
-    </Router>
-  )
-}
-
-function Home() {
-  return <div>首页</div>
-}
-
-function Todo() {
-  return <div>我的代办</div>
-}
-
-function Message() {
-  return <div>我的消息</div>
-}
-
-function PersonalCenter() {
-  return <div>个人中心</div>
-}
+export default Footer

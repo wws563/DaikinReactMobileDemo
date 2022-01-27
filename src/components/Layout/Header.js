@@ -1,17 +1,12 @@
 import React from "react";
-import "../content/css/loading.css";
+import styles from  "../content/css/header.less";
+import {NavBar} from "antd"
 
-
-function Loading() {
+function Header() {
   return (
-	<div className="loading">
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-	</div>
+		<div className={styles.body}>
+			<NavBar>配合路由使用</NavBar>
+		</div>
   );
 }
-
-export default Loading;
+export default Header
