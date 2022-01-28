@@ -10,6 +10,8 @@ import Footer from '@/components/Layout/Footer'
 import styles from '@/content/css/demo.less'
 
 export default function Layout(params){
+  console.log(styles.app);
+
   return (
     <Router initialEntries={['/home']}>
       <div className={styles.app}>
