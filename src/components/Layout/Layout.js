@@ -1,13 +1,46 @@
-import React from 'react'
-import { NavBar } from 'antd-mobile'
+// import React from 'react'
+import { useState } from 'react'
 import {
   Route,
   Switch,
   MemoryRouter as Router,
 } from 'react-router-dom'
 
+import {
+  AppOutline,
+  MessageOutline,
+  UnorderedListOutline,
+  UserOutline,
+} from 'antd-mobile-icons'
+
 import Footer from '@/components/Layout/Footer'
+import Header from '@/components/Layout/Header'
 import styles from '@/content/css/demo.less'
+
+
+const router = [
+  {
+    key: '/home',
+    title: '首页',
+    icon: <AppOutline />,
+  },
+  {
+    key: '/todo',
+    title: '我的待办',
+    icon: <UnorderedListOutline />,
+  },
+  {
+    key: '/message',
+    title: '我的消息',
+    icon: <MessageOutline />,
+  },
+  {
+    key: '/me',
+    title: '个人中心',
+    icon: <UserOutline />,
+  },
+]
+// const [activeTitle, setActiveTitle] = useState()
 
 export default function Layout(params){
   console.log(styles.app);
@@ -15,9 +48,8 @@ export default function Layout(params){
   return (
     <Router initialEntries={['/home']}>
       <div className={styles.app}>
-        <div className={styles.top}>
-          <NavBar>配合路由使用</NavBar>
-        </div>
+        {/* <Header title={activeTitle} /> */}
+        <Header />
         <div className={styles.body}>
           <Switch>
             <Route exact path='/home'>

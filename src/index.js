@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@/components/Layout/Layout'
 import reportWebVitals from './reportWebVitals';
+import './index.css';
 
 ReactDOM.render(
   // 严格模式，用于提示各类错误

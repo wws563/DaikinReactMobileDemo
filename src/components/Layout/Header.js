@@ -1,6 +1,6 @@
-import React from "react";
-import styles from  "../content/css/header.less";
-import {NavBar} from "antd"
+// import React from "react";
+import { NavBar } from "antd-mobile"
+import styles from '@/content/css/footer.less'
 
 function Header() {
   return (
