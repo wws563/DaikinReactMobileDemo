@@ -13,7 +13,7 @@ import {
 
 import styles from '@/content/css/footer.less'
 
-const Footer = () => {
+const Footer = (props) => {
   const history = useHistory()
   const location = useLocation()
   const { pathname } = location
@@ -44,10 +44,13 @@ const Footer = () => {
       icon: <UserOutline />,
     },
   ]
-
+	const onTabClick = function(value){
+		setRouteActive(value)
+		props.onChange(value)
+	}
   return (
     <div className={styles.footer}>
-      <TabBar activeKey={pathname} onChange={value => setRouteActive(value)}>
+      <TabBar activeKey={pathname} onChange={onTabClick}>
         {tabs.map(item => (
           <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
         ))}

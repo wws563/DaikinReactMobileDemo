@@ -40,16 +40,16 @@ const router = [
     icon: <UserOutline />,
   },
 ]
-// const [activeTitle, setActiveTitle] = useState()
+
 
 export default function Layout(params){
+  const [activeTitle, setActiveTitle] = useState(router[0].title)
   console.log(styles.app);
 
   return (
     <Router initialEntries={['/home']}>
       <div className={styles.app}>
-        {/* <Header title={activeTitle} /> */}
-        <Header />
+        <Header title={activeTitle} />
         <div className={styles.body}>
           <Switch>
             <Route exact path='/home'>
@@ -67,7 +67,7 @@ export default function Layout(params){
           </Switch>
         </div>
         <div className={styles.footer}>
-          <Footer />
+          <Footer onChange={val => setActiveTitle(val)} />
         </div>
       </div>
     </Router>
