@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@/components/Layout/Layout'
 import reportWebVitals from './reportWebVitals';
+// import '@content/css/common.less';
 import './index.css';
 
 ReactDOM.render(
   // 严格模式，用于提示各类错误
   <React.StrictMode> 
-    <Layout></Layout>
+    <Layout>
+      <div className='alert'>test show position</div>
+    </Layout>
   </React.StrictMode>
   ,
   document.getElementById('root')
