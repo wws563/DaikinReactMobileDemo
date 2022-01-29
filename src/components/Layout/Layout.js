@@ -15,7 +15,7 @@ import {
 
 import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
-import styles from '@/content/css/demo.less'
+import styles from '@/content/css/layout.less'
 
 
 const router = [
@@ -26,12 +26,12 @@ const router = [
   },
   {
     key: '/list',
-    title: '列表',
+    title: '列表展示',
     icon: <UnorderedListOutline />,
   },
   {
     key: '/form',
-    title: '表单',
+    title: '表单提交',
     icon: <MessageOutline />,
   },
   {
@@ -49,7 +49,7 @@ export default function Layout(props){
     <Router initialEntries={['/home']}>
       <div className={styles.app}>
         <Header title={activeTitle} />
-        <div className={styles.body}>
+        <div className={styles.content}>
           <Switch>
             <Route exact path='/home'>
               <Home />
@@ -65,16 +65,25 @@ export default function Layout(props){
             </Route>
           </Switch>
         </div>
-        <div className={styles.footer}>
-          <Footer tabs={router} onChange={val => setActiveTitle(val.title)} />
-        </div>
+        <Footer tabs={router} onChange={val => setActiveTitle(val.title)} />
       </div>
     </Router>
   )
 }
 
 function Home() {
-  return <div>首页</div>
+  return (<div>
+    <div style={{
+      height:"500px"
+    }}>首页</div>
+        <div style={{
+      height:"500px"
+    }}>首页</div>
+        <div style={{
+      height:"500px"
+    }}>首页</div>
+    
+    </div>)
 }
 
 function Todo() {

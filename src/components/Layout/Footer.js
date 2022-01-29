@@ -5,7 +5,7 @@ import {
   useLocation,
 } from 'react-router-dom'
 
-import styles from '@/content/css/footer.less'
+import styles from '@/content/css/layout.less'
 
 const Footer = (props) => {
 	// router相关方法

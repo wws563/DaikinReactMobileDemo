@@ -1,10 +1,10 @@
 // import React from "react";
 import { NavBar } from "antd-mobile"
-import styles from '@/content/css/footer.less'
+import styles from '@/content/css/layout.less'
 
 function Header(props) {
   return (
-		<div className={styles.body}>
+		<div className={styles.header}>
 			<NavBar>{props.title}</NavBar>
 		</div>
   );
