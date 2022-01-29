@@ -25,13 +25,13 @@ const router = [
     icon: <AppOutline />,
   },
   {
-    key: '/todo',
-    title: '我的待办',
+    key: '/list',
+    title: '列表',
     icon: <UnorderedListOutline />,
   },
   {
-    key: '/message',
-    title: '我的消息',
+    key: '/form',
+    title: '表单',
     icon: <MessageOutline />,
   },
   {
@@ -42,9 +42,8 @@ const router = [
 ]
 
 
-export default function Layout(params){
-  const [activeTitle, setActiveTitle] = useState(router[0].title)
-  console.log(styles.app);
+export default function Layout(props){
+  const [activeTitle, setActiveTitle] = useState(router[0].title) // header的标题
 
   return (
     <Router initialEntries={['/home']}>
@@ -55,10 +54,10 @@ export default function Layout(params){
             <Route exact path='/home'>
               <Home />
             </Route>
-            <Route exact path='/todo'>
+            <Route exact path='/list'>
               <Todo />
             </Route>
-            <Route exact path='/message'>
+            <Route exact path='/form'>
               <Message />
             </Route>
             <Route exact path='/me'>
@@ -67,7 +66,7 @@ export default function Layout(params){
           </Switch>
         </div>
         <div className={styles.footer}>
-          <Footer onChange={val => setActiveTitle(val)} />
+          <Footer tabs={router} onChange={val => setActiveTitle(val.title)} />
         </div>
       </div>
     </Router>
