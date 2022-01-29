@@ -1,28 +1,32 @@
-import React from "react";
 import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import Home from '@/pages/home'
+  AppOutline,
+  MessageOutline,
+  UnorderedListOutline,
+  UserOutline,
+} from 'antd-mobile-icons'
 
-export default function BasicExample() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element={Home()} />
-                <Route path='/about' element={About()} />
-            </Routes>
-        </BrowserRouter>
-    )
-}
+const footerRoutes = [
+  {
+    key: '/home',
+    title: '首页',
+    icon: <AppOutline />,
+  },
+  {
+    key: '/list',
+    title: '列表展示',
+    icon: <UnorderedListOutline />,
+  },
+  {
+    key: '/form',
+    title: '表单提交',
+    icon: <MessageOutline />,
+  },
+  {
+    key: '/me',
+    title: '个人中心',
+    icon: <UserOutline />,
+  },
+]
 
-// You can think of these components as "pages"
-// in your app.
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
+
+export {footerRoutes} 

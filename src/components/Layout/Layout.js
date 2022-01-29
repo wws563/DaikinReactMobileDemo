@@ -6,44 +6,18 @@ import {
   MemoryRouter as Router,
 } from 'react-router-dom'
 
-import {
-  AppOutline,
-  MessageOutline,
-  UnorderedListOutline,
-  UserOutline,
-} from 'antd-mobile-icons'
+import {footerRoutes} from '@/router/index'
 
 import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
 import styles from '@/content/css/layout.less'
 
 
-const router = [
-  {
-    key: '/home',
-    title: '首页',
-    icon: <AppOutline />,
-  },
-  {
-    key: '/list',
-    title: '列表展示',
-    icon: <UnorderedListOutline />,
-  },
-  {
-    key: '/form',
-    title: '表单提交',
-    icon: <MessageOutline />,
-  },
-  {
-    key: '/me',
-    title: '个人中心',
-    icon: <UserOutline />,
-  },
-]
+
 
 
 export default function Layout(props){
-  const [activeTitle, setActiveTitle] = useState(router[0].title) // header的标题
+  const [activeTitle, setActiveTitle] = useState(footerRoutes[0].title) // header的标题
 
   return (
     <Router initialEntries={['/home']}>
@@ -65,7 +39,7 @@ export default function Layout(props){
             </Route>
           </Switch>
         </div>
-        <Footer tabs={router} onChange={val => setActiveTitle(val.title)} />
+        <Footer tabs={footerRoutes} onChange={val => setActiveTitle(val.title)} />
       </div>
     </Router>
   )
