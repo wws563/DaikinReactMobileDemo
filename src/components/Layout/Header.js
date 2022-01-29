@@ -2,10 +2,10 @@
 import { NavBar } from "antd-mobile"
 import styles from '@/content/css/footer.less'
 
-function Header() {
+function Header(props) {
   return (
 		<div className={styles.body}>
-			<NavBar>配合路由使用</NavBar>
+			<NavBar>{props.title}</NavBar>
 		</div>
   );
 }

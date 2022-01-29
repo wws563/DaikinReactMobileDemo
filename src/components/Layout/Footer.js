@@ -46,13 +46,13 @@ const Footer = (props) => {
   ]
 	const onTabClick = function(value){
 		setRouteActive(value)
-		props.onChange(value)
+		props.onChange(tabs.find(item => item.key === value).title)
 	}
   return (
     <div className={styles.footer}>
       <TabBar activeKey={pathname} onChange={onTabClick}>
         {tabs.map(item => (
-          <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+          <TabBar.Item key={item.key} icon={item.icon} title={item.title}/>
         ))}
       </TabBar>
     </div>
