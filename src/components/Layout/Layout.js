@@ -10,6 +10,7 @@ import {footerRoutes} from '@/router/index'
 
 import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
+import Home from '@/pages/home'
 import styles from '@/content/css/layout.less'
 
 
@@ -45,20 +46,20 @@ export default function Layout(props){
   )
 }
 
-function Home() {
-  return (<div>
-    <div style={{
-      height:"500px"
-    }}>首页</div>
-        <div style={{
-      height:"500px"
-    }}>首页</div>
-        <div style={{
-      height:"500px"
-    }}>首页</div>
+// function Home() {
+//   return (<div>
+//     <div style={{
+//       height:"500px"
+//     }}>首页</div>
+//         <div style={{
+//       height:"500px"
+//     }}>首页</div>
+//         <div style={{
+//       height:"500px"
+//     }}>首页</div>
     
-    </div>)
-}
+//     </div>)
+// }
 
 function Todo() {
   return <div>我的代办</div>

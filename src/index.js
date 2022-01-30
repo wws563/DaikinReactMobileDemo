@@ -9,9 +9,7 @@ ReactDOM.render(
   // 严格模式，用于提示各类错误
   <React.StrictMode> 
     <Layout>
-
     </Layout>
-    <div className='alert'>test show position</div>
   </React.StrictMode>
   ,
   document.getElementById('root')
