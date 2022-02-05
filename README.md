@@ -13,5 +13,6 @@
 
 #### 踩坑记录
 1. react项目开启了`css module`会把`class`编辑成哈希值，全局变量需要使用`:global`转换一下。
-2. 发现了一个`antd-mobile`组件`floatingBubble`的一个bug.
+2. 发现了一个`antd-mobile`组件`floatingBubble`的一个bug.(已提交PR修改)
+3. `react-react-app`的`build`命令生成文件查看时，空白，404报错。[在packgejson中增加homepage:"."属性,保证路径正确](https://blog.csdn.net/tiangongkaiwu152368/article/details/80854683)
 to be continued...
