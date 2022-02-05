@@ -13,5 +13,5 @@
 
 #### 踩坑记录
 1. react项目开启了`css module`会把`class`编辑成哈希值，全局变量需要使用`:global`转换一下。
-
+2. 发现了一个`antd-mobile`组件`floatingBubble`的一个bug.
 to be continued...
