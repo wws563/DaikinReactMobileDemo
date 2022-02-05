@@ -10,6 +10,7 @@ import {footerRoutes} from '@/router/index'
 
 import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
+import Bubble from '@/components/Layout/Bubble'
 import Home from '@/pages/home'
 import styles from '@/content/css/layout.less'
 
@@ -42,6 +43,7 @@ export default function Layout(props){
         </div>
         <Footer tabs={footerRoutes} onChange={val => setActiveTitle(val.title)} />
       </div>
+      <Bubble></Bubble>
     </Router>
   )
 }
