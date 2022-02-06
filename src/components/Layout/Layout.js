@@ -12,6 +12,7 @@ import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
 import Bubble from '@/components/Layout/Bubble'
 import Home from '@/pages/home'
+import List from '@/pages/list'
 import styles from '@/content/css/layout.less'
 
 
@@ -31,7 +32,7 @@ export default function Layout(props){
               <Home />
             </Route>
             <Route exact path='/list'>
-              <Todo />
+              <List />
             </Route>
             <Route exact path='/form'>
               <Message />
@@ -63,9 +64,6 @@ export default function Layout(props){
 //     </div>)
 // }
 
-function Todo() {
-  return <div>我的代办</div>
-}
 
 function Message() {
   return <div>我的消息</div>
