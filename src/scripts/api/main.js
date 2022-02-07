@@ -1,34 +1,22 @@
-/*
- * 封装接口
- */
-//import React from "react";
+// 使用mockjs模拟接口调用
+import Mock from 'mockjs'
 
+Mock.setup({
+	timeout: 0-300
+})
+// const Random = Mock.Random;
+const Api = {
+	getList: Mock.mock('/api/getList','get',{
+		'xData|100':['@datetime'],
+		'series|2':[{
+				'name':'@NAME',
+				'type':'line',
+				'smooth':true,
+				'data|100':['@integer(1,600)']
+		}]
+	})
+}
+// const listData = Mock.mock({"testList|10":[
+// 	{id:'@guid',name:'@ctitle'}]}).testList
 
-//const url = ;
-const CONST_OPTIONS = {
-	method: "post",
-	//credentials: 'include',
-	headers: {
-		"Content-Type": "application/json;charset=UTF-8",
-	},
-	body: JSON.stringify({ name: "ye" }
-	)
-}
-function post(url, data) {
-    return new Promise((resolve, reject) => {
-        fetch(url,CONST_OPTIONS,data)
-		.then(res=>{
-			resolve(res)
-		})
-		.catch(err=>{
-			reject(err)
-		});
-    })
-}
-const api = {
-	findStudent:(data = null)=>{
-		return post('http://localhost:9000/testApi/findStudents')
-	}
-}
-
-export default api;
+export default Api
