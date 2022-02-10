@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@/components/Layout/Layout'
 import reportWebVitals from './reportWebVitals';
+import '@/scripts/mock/index'
 import './content/css/common.less';
 import './index.css';
 

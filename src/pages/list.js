@@ -1,6 +1,6 @@
 
 import Mock from 'mockjs'
-
+import { getFiles } from '../scripts/services/api'
 import styles from '@/content/css/home.less'
 import '@/scripts/mock'
 
@@ -18,10 +18,10 @@ const listItems = listData.map((item,index)=>{
 	)
 })
 
-// const getList = async()=>{
-// 	res = await Api.getList
-// }
-
+const data = getFiles().then(res=>{
+	console.log(res)
+})
+console.log(data)
 function List(){
 	return (
 	<div className={styles.container}>

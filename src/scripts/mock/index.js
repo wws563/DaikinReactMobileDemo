@@ -1,5 +1,4 @@
 import Mock from 'mockjs'
-
 import file from './file'
 
 const mocks = [
